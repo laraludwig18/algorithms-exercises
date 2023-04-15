@@ -1,11 +1,22 @@
+'use strict';
+
 import assert from 'node:assert/strict';
 
+/**
+ * Time complexity: O(2N * M)
+ * Space complexity: O(N)
+ *
+ * @param  {string} stringWithSpaces
+ * @param  {number} stringSize
+ * @param  {string} [character="%20"] Character to replace spaces
+ * @return {string} Updated string using character instead of spaces
+ */
 function replaceSpacesWithCharacter(stringWithSpaces, stringSize, character = "%20") {
     let string = stringWithSpaces.split("");
     const space = " ";
-    const numberOfSpaces = countCharacter(string, stringSize, space);
-    let newIndex = stringSize - 1 + numberOfSpaces * (character.length - space.length);
-
+    const spaceCount = countCharacter(string, stringSize, space);
+    
+    let newIndex = stringSize - 1 + spaceCount * (character.length - space.length);
     for (let oldIndex = stringSize - 1; oldIndex >= 0; oldIndex--) {
         if (string[oldIndex] === space) {
             for (let characterIndex = 0; characterIndex < character.length; characterIndex++) {

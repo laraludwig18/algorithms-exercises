@@ -1,20 +1,30 @@
+'use strict';
+
 import assert from 'node:assert/strict';
 
+/**
+ * Basically checks if exists only one character count equals one
+ * 
+ * Time complexity: O(N)
+ * Space complexity: O(N)
+ *
+ * @param  {string} string
+ * @return {string} True if input string (case insensitive and ignoring spaces) is a permutation of a palindrome, otherwise false
+ */
 function isStringPermutationOfPalindrome(string) {
-    let countOdd = 0;
-    let lettersCount = {};
-    const stringWithOnlyLettersAndCaseInsensitive = string.toLowerCase().replace(/[^a-zA-Z]+/g, "");
+    if (!string) return false;
 
-    for (const letter of stringWithOnlyLettersAndCaseInsensitive.split("")) {
-        const currentCount = lettersCount[letter] || 0;
-        lettersCount[letter] = currentCount + 1;
-        
-        const isCountOdd = lettersCount[letter] % 2 === 1;
-        isCountOdd ? countOdd++ : countOdd--;
+    const chars = new Set();
+    const caseInsensitiveStringChars = string.toLowerCase().split("");
+    for (const char of caseInsensitiveStringChars) {
+        if (char === " ") continue;
+
+        if (chars.has(char)) chars.delete(char);
+        else chars.add(char);
     }
 
-    return countOdd <= 1;
+    return chars.size <= 1;
 }
 
-assert.strictEqual(isStringPermutationOfPalindrome("Tact coa1"), true);
+assert.strictEqual(isStringPermutationOfPalindrome("Tact Coa"), true); // Palindrome: atco cta
 assert.strictEqual(isStringPermutationOfPalindrome("john doe"), false);
