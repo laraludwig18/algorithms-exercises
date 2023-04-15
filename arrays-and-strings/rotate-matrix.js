@@ -1,9 +1,20 @@
+'use strict';
+
 import assert from 'node:assert/strict';
 
+/**
+ * Time complexity: O(N^2)
+ * Space complexity: O(1)
+ *
+ * @param {array} matrix NxN matrix
+ * @return {array} Rotated matrix
+ */
 function rotateMatrix90Clockwise(matrix) {
     const isEmptyMatrix = matrix.length === 0;
     const AreMatrixRowsAndColumnsSizeDifferent = matrix.length !== matrix[0].length;
-    if (isEmptyMatrix || AreMatrixRowsAndColumnsSizeDifferent) return false;
+    if (isEmptyMatrix || AreMatrixRowsAndColumnsSizeDifferent) throw new Error('Invalid matrix');
+
+    if (matrix.length < 2) return matrix; // no need to do anything to rotate a 1x1 matrix
 
     const matrixSize = matrix.length;
 
@@ -38,10 +49,10 @@ assert.deepStrictEqual(
         [5, 6, 7, 8],
         [9, 10, 11, 12],
         [13, 14, 15, 16]]),
-        [[13, 9, 5, 1],
-        [14, 10, 6, 2],
-        [15, 11, 7, 3],
-        [16, 12, 8, 4]]);
+    [[13, 9, 5, 1],
+    [14, 10, 6, 2],
+    [15, 11, 7, 3],
+    [16, 12, 8, 4]]);
 
 // 1  2  3  4
 // 5  6  7  8

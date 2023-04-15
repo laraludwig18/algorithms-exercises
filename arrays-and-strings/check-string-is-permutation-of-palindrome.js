@@ -8,8 +8,8 @@ import assert from 'node:assert/strict';
  * Time complexity: O(N)
  * Space complexity: O(N)
  *
- * @param  {string} string
- * @return {string} True if input string (case insensitive and ignoring spaces) is a permutation of a palindrome, otherwise false
+ * @param {string} string
+ * @return {boolean} True if input string (case insensitive and ignoring spaces) is a permutation of a palindrome, otherwise false
  */
 function isStringPermutationOfPalindrome(string) {
     if (!string) return false;

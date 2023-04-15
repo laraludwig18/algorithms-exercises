@@ -6,9 +6,9 @@ import assert from 'node:assert/strict';
  * Time complexity: O(2N * M)
  * Space complexity: O(N)
  *
- * @param  {string} stringWithSpaces
- * @param  {number} stringSize
- * @param  {string} [character="%20"] Character to replace spaces
+ * @param {string} stringWithSpaces
+ * @param {number} stringSize
+ * @param {string} [character="%20"] Character to replace spaces
  * @return {string} Updated string using character instead of spaces
  */
 function replaceSpacesWithCharacter(stringWithSpaces, stringSize, character = "%20") {

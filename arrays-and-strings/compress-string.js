@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
  * Time complexity: O(N)
  * Space complexity: O(N)
  *
- * @param  {string} firstString
+ * @param {string} string
  * @return {string} Compressed string or original string if equal or smaller than compressed
  */
 function compressString(string) {

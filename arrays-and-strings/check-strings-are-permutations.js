@@ -6,8 +6,8 @@ import assert from 'node:assert/strict';
  * Time complexity: O(N + M)
  * Space complexity: O(N + M)
  *
- * @param  {string} firstString
- * @param  {string} secondString
+ * @param {string} firstString
+ * @param {string} secondString
  * @return {boolean} True if first and second strings are permutations otherwise false
  */
 

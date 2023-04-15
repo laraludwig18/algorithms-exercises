@@ -6,9 +6,9 @@ import assert from 'node:assert/strict';
  * Time complexity: O(N)
  * Space complexity: O(1)
  *
- * @param  {string} firstString
- * @param  {string} secondString
- * @return {string} True if strings are less than two edits away, otherwise false
+ * @param {string} firstString
+ * @param {string} secondString
+ * @return {boolean} True if strings are less than two edits away, otherwise false
  */
 function areStringsLessThanTwoEditsAway(firstString, secondString) {
     const firstStringSize = firstString.length;

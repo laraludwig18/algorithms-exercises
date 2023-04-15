@@ -3,14 +3,11 @@
 import assert from 'node:assert/strict';
 
 /**
- * To keep track of seen characters using an object with the key as the character and the value as a boolean
- * (hash table-like approach)
+ * Time complexity: O(1)
+ * Space complexity: O(N)
  *
- * Time: O(1)
- * Additional space: O(N)
- *
- * @param  {string} string String to check
- * @return {boolean}       True if unique characters, otherwise false
+ * @param {string} string
+ * @return {boolean} True if unique characters, otherwise false
  */
 export default function hasAllUniqueCharacters(string) {
     const stringSize = string.length;
