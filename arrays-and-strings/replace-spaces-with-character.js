@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict';
 
 /**
- * Time complexity: O(2N * M)
+ * Time complexity: O(N * M)
  * Space complexity: O(N)
  *
  * @param {string} stringWithSpaces

@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 
 /**
  * Time complexity: O(N + M)
- * Space complexity: O(N + M)
+ * Space complexity: O(N)
  *
  * @param {string} firstString
  * @param {string} secondString
@@ -22,7 +22,7 @@ function areStringsPermutations(firstString, secondString) {
         chars.set(char, charCount);
     }
 
-    // Check if the two strings have identical character counts
+    // Check if the two strings have identical character count
     for (let i = 0; i < secondString.length; ++i) {
         const char = secondString.charAt(i);
         const charCount = chars.get(char);
