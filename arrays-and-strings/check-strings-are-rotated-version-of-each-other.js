@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-import assert from 'node:assert/strict';
+import assert from "node:assert/strict";
 
 /**
  * Time complexity: O(N)
@@ -11,7 +11,7 @@ import assert from 'node:assert/strict';
  * @return {boolean} True if s1 and s2 are rotated versions of each other, otherwise false
  */
 function areStringsRotatedVersionsOfEachOther(s1, s2) {
-  if (!s1 || !s2) throw new Error('invalid input');
+    if (!s1 || !s2) throw new Error("Invalid input");
 
   const areStringsOfDifferentSize = s1.length !== s2.length;
   const isFirstStringEmpty = s1.length === 0;

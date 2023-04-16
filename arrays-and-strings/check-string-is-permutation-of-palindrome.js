@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-import assert from 'node:assert/strict';
+import assert from "node:assert/strict";
 
 /**
  * Basically checks if exists only one character count equals one

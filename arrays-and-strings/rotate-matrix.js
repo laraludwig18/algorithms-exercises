@@ -1,20 +1,21 @@
-'use strict';
+"use strict";
 
-import assert from 'node:assert/strict';
+import assert from "node:assert/strict";
 
 /**
- * Time complexity: O(N^2)
+ * Time complexity: O(N²)
  * Space complexity: O(1)
  *
  * @param {array} matrix NxN matrix
- * @return {array} Rotated matrix
+ * @return {array} Modified Rotated matrix
  */
 function rotateMatrix90Clockwise(matrix) {
     const isEmptyMatrix = matrix.length === 0;
     const AreMatrixRowsAndColumnsSizeDifferent = matrix.length !== matrix[0].length;
-    if (isEmptyMatrix || AreMatrixRowsAndColumnsSizeDifferent) throw new Error('Invalid matrix');
+    if (isEmptyMatrix || AreMatrixRowsAndColumnsSizeDifferent) throw new Error("Invalid matrix");
 
-    if (matrix.length < 2) return matrix; // no need to do anything to rotate a 1x1 matrix
+    // no need to do anything to rotate a 1x1 matrix
+    if (matrix.length < 2) return matrix;
 
     const matrixSize = matrix.length;
 

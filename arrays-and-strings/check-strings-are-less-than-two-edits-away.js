@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-import assert from 'node:assert/strict';
+import assert from "node:assert/strict";
 
 /**
  * Time complexity: O(N)

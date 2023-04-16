@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-import assert from 'node:assert/strict';
+import assert from "node:assert/strict";
 
 /**
  * Time complexity: O(N * M)
@@ -9,7 +9,7 @@ import assert from 'node:assert/strict';
  * @param {string} stringWithSpaces
  * @param {number} stringSize
  * @param {string} [character="%20"] Character to replace spaces
- * @return {string} Updated string using character instead of spaces
+ * @return {string} New string using character instead of spaces
  */
 function replaceSpacesWithCharacter(stringWithSpaces, stringSize, character = "%20") {
     let string = stringWithSpaces.split("");
