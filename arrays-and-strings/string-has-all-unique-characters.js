@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 
 /**
  * Time complexity: O(1)
- * Space complexity: O(N)
+ * Space complexity: O(1)
  *
  * @param {string} string
  * @return {boolean} True if unique characters, otherwise false
