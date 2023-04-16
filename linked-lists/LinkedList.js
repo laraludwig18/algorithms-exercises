@@ -85,18 +85,11 @@ export default class LinkedList {
     getKthToLast(k) {
         if (!this.head || k <= 0 || k > this.size) return null;
 
-        let p1 = this.head;
-        let p2 = this.head;
-
-        for (let i = 0; i < k; i++) {
-            p1 = p1?.next;
+        let pointer = this.head;
+        for (let i = 0; i < this.size - k; i++) {
+            pointer = pointer?.next;
         }
 
-        while (p1) {
-            p1 = p1.next;
-            p2 = p2.next;
-        }
-
-        return p2.element;
+        return pointer.element;
     }
 }
