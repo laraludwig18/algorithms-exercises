@@ -11,20 +11,20 @@ import assert from 'node:assert/strict';
  * @return {boolean} True if s1 and s2 are rotated versions of each other, otherwise false
  */
 function areStringsRotatedVersionsOfEachOther(s1, s2) {
-    if (!s1 || !s2) throw new Error('invalid input');
+  if (!s1 || !s2) throw new Error('invalid input');
 
-    const areStringsOfDifferentSize = s1.length !== s2.length;
-    const isFirstStringEmpty = s1.length === 0;
+  const areStringsOfDifferentSize = s1.length !== s2.length;
+  const isFirstStringEmpty = s1.length === 0;
 
-    if (areStringsOfDifferentSize || isFirstStringEmpty) return false;
+  if (areStringsOfDifferentSize || isFirstStringEmpty) return false;
 
-    const s1s1 = s1 + s1;
-    return isSubstring(s1s1, s2);
+  const s1s1 = s1 + s1;
+  return isSubstring(s1s1, s2);
 }
 
 function isSubstring(string, substr) {
-    return string.includes(substr);
-  }
+  return string.includes(substr);
+}
 
 assert.deepStrictEqual(areStringsRotatedVersionsOfEachOther("waterbottle", "erbottlewat"), true);
 assert.deepStrictEqual(areStringsRotatedVersionsOfEachOther("waterbottle", "erbottllwat"), false);

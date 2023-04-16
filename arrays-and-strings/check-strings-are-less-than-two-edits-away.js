@@ -23,9 +23,8 @@ function areStringsLessThanTwoEditsAway(firstString, secondString) {
 
 function checkReplace(firstString, secondString) {
     let foundDifference = false;
-    const stringSize = firstString.length;
 
-    for (let i = 0; i < stringSize; i++) {
+    for (let i = 0; i < firstString.length; i++) {
         if (firstString.charAt(i) !== secondString.charAt(i)) {
             if (foundDifference) return false;
 
