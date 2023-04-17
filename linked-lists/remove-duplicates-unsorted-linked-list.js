@@ -7,6 +7,7 @@ assert.strictEqual(
     new LinkedList()
         .add(2)
         .add(2)
+        .add(2)
         .removeDuplicates()
         .size,
     1);

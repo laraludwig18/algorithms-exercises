@@ -6,8 +6,8 @@ import assert from "node:assert/strict";
  * Time complexity: O(N * M)
  * Space complexity: O(N + M)
  *
- * @param {array} matrix NxM matrix
- * @return {array} Modified Zeroed matrix
+ * @param {Array<Array<number>>} matrix NxM matrix
+ * @return {Array<Array<number>>} Modified Zeroed matrix
  */
 function zeroMatrix(matrix) {
     if (!matrix) throw new Error("Invalid matrix");

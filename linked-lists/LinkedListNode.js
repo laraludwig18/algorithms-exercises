@@ -7,6 +7,7 @@ export default class LinkedListNode {
     constructor(element) {
         /**
         * @property {any}
+        * @readonly
         */
         this.element = element;
         /**

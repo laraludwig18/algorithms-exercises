@@ -6,8 +6,8 @@ import assert from "node:assert/strict";
  * Time complexity: O(N²)
  * Space complexity: O(1)
  *
- * @param {array} matrix NxN matrix
- * @return {array} Modified Rotated matrix
+ * @param {Array<Array<number>>} matrix NxN matrix
+ * @return {Array<Array<number>>} Modified Rotated matrix
  */
 function rotateMatrix90Clockwise(matrix) {
     const isEmptyMatrix = matrix.length === 0;

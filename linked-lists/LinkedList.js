@@ -7,19 +7,19 @@ export default class LinkedList {
         /**
         * @property {LinkedListNode}
         * @default null
+        * @private
         */
         this.head = null;
         /**
         * @property {number}
-        * @default 0;
+        * @default 0
         */
         this.size = 0;
     }
 
     /** 
-    * Add multiple elements
-    *  
-    * @param {array} elements
+    * @property {Function} addMany Add multiple elements
+    * @param {Array<number>} elements
     * @return {this}
     */
     addMany(elements) {
@@ -29,8 +29,7 @@ export default class LinkedList {
     }
 
     /**
-    * Add single element
-    *  
+    * @property {Function} add Add single element
     * @param {any} element
     * @return {this}
     */
@@ -55,11 +54,12 @@ export default class LinkedList {
     }
 
     /**
-     * Time complexity: O(N²)
-     * Space complexity: O(1)
-     * 
-     * @return {this}
-     */
+    * Time complexity: O(N²)
+    * Space complexity: O(1)
+    * 
+    * @property {Function} removeDuplicates Remove duplicate elements
+    * @return {this}
+    */
     removeDuplicates() {
         let current = this.head;
 
@@ -82,14 +82,13 @@ export default class LinkedList {
     }
 
     /**
-     * Return kth to last element
-     * 
-     * Time complexity: O(N)
-     * Space complexity: O(1)
-     * 
-     * @param {number} k Position to return element
-     * @return {any}
-     */
+    * Time complexity: O(N)
+    * Space complexity: O(1)
+    * 
+    * @property {Function} getKthToLast Return kth to last element
+    * @param {number} k Position to return element
+    * @return {any}
+    */
     getKthToLast(k) {
         if (!this.head || k <= 0 || k > this.size) return null;
 
