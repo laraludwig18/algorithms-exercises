@@ -4,11 +4,19 @@ import LinkedListNode from "./LinkedListNode.js";
 
 export default class LinkedList {
     constructor() {
+        /**
+        * @property {LinkedListNode}
+        * @default null
+        */
         this.head = null;
+        /**
+        * @property {number}
+        * @default 0;
+        */
         this.size = 0;
     }
 
-    /**
+    /** 
     * Add multiple elements
     *  
     * @param {array} elements
