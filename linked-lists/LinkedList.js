@@ -23,6 +23,10 @@ export default class LinkedList {
     * @return {this}
     */
     addMany(elements) {
+        if (!Array.isArray(elements) || !elements.length) {
+            throw new Error('Invalid elements');
+        }
+
         elements.forEach(element => this.add(element));
 
         return this;
@@ -98,5 +102,29 @@ export default class LinkedList {
         }
 
         return pointer.element;
+    }
+
+    /**
+    * Time complexity: O(N)
+    * Space complexity: O(1)
+    * 
+    * @property {Function} removeMiddleNode Remove a node in the middle, unless the first and last
+    * @return {this}
+    */
+    removeMiddleNode() {
+        if (this.size <= 2) return this;
+
+        const middleIndex = Math.floor((this.size - 1) / 2);
+        const previousMiddleIndex = middleIndex - 1;
+
+        let pointer = this.head;
+        for (let i = 0; i < previousMiddleIndex; i++) {
+            pointer = pointer.next;
+        }
+
+        pointer.next = pointer?.next?.next;
+        this.size--;
+
+        return this;
     }
 }
