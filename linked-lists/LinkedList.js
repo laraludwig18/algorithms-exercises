@@ -127,4 +127,39 @@ export default class LinkedList {
 
         return this;
     }
+
+    /**
+    * Time complexity: O(N)
+    * Space complexity: O(N)
+    * 
+    * @property {Function} partitionAroundValue Partition a linked list around a value,
+    * such that all nodes less than value come before all nodes greater or equal to
+    * @return {this}
+    */
+    partitionAroundValue(value) {
+        if (this.size <= 1) return this;
+
+        let head = this.head;
+        let tail = this.head;
+        let current = this.head;
+
+        while (current !== null) {
+            let next = current.next;
+
+            if (current.element < value) {
+                current.next = head;
+                head = current;
+            } else {
+                tail.next = current;
+                tail = current;
+            }
+
+            current = next;
+        }
+
+        tail.next = null;
+        this.head = head;
+
+        return this;
+    }
 }
