@@ -3,13 +3,13 @@
 import assert from "node:assert/strict";
 
 /**
- * Basically checks if exists only one character count equals one
+ * A palindrome is a word, phrase, number, or sequence of characters that reads the same way forwards and backwards.
  * 
  * Time complexity: O(N)
  * Space complexity: O(N)
  *
  * @param {string} string
- * @return {boolean} True if input string (case insensitive and ignoring spaces) is a permutation of a palindrome, otherwise false
+ * @return {boolean} True if input string (case insensitive and ignoring spaces) is a permutation of a palindrome, otherwise false.
  */
 function isStringPermutationOfPalindrome(string) {
     if (!string) return false;
@@ -23,6 +23,7 @@ function isStringPermutationOfPalindrome(string) {
         else chars.add(char);
     }
 
+    const existsOnlyOneCharCountEqualOrLessThanOne = chars.size <= 1;
     return chars.size <= 1;
 }
 

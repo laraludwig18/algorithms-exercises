@@ -2,11 +2,11 @@
 
 export default class LinkedListNode {
     /**
-    * @param {any} element
+    * @param {string | number} element
     */
     constructor(element) {
         /**
-        * @property {any}
+        * @property {string | number}
         * @readonly
         */
         this.element = element;

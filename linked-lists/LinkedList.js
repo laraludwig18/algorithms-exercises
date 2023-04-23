@@ -34,7 +34,7 @@ export default class LinkedList {
 
     /**
     * @property {Function} add Add single element
-    * @param {any} element
+    * @param {string | number} element
     * @return {this}
     */
     add(element) {
@@ -91,7 +91,7 @@ export default class LinkedList {
     * 
     * @property {Function} getKthToLast Return kth to last element
     * @param {number} k Position to return element
-    * @return {any}
+    * @return {string | number}
     */
     getKthToLast(k) {
         if (!this.head || k <= 0 || k > this.size) return null;
@@ -108,7 +108,7 @@ export default class LinkedList {
     * Time complexity: O(N)
     * Space complexity: O(1)
     * 
-    * @property {Function} removeMiddleNode Remove a node in the middle, unless the first and last
+    * @property {Function} removeMiddleNode Remove a node in the middle, unless the first and last.
     * @return {this}
     */
     removeMiddleNode() {
@@ -133,7 +133,7 @@ export default class LinkedList {
     * Space complexity: O(N)
     * 
     * @property {Function} partitionAroundValue Partition a linked list around a value,
-    * such that all nodes less than value come before all nodes greater or equal to
+    * such that all nodes less than value come before all nodes greater or equal to.
     * @return {this}
     */
     partitionAroundValue(value) {
@@ -167,7 +167,7 @@ export default class LinkedList {
     * Time complexity: O(N + M)
     * Space complexity: O(N + M)
     * 
-    * @property {Function} toString Return elements in string format. Ex: 1 -> 2 -> 3 = "123"
+    * @property {Function} toString Return elements in string format. Ex: 1 -> 2 -> 3 = "123".
     * @return {string}
     */
     toString() {
@@ -182,5 +182,30 @@ export default class LinkedList {
         }
 
         return stringBuilder.join("");
+    }
+
+    /**
+    * Time complexity: O(N)
+    * Space complexity: O(N)
+    * 
+    * @property {Function} isAPalindrome Check if linked list elements are a palindrome.
+    * A palindrome is a word, phrase, number, or sequence of characters that reads the same way forwards and backwards.
+    * @return {boolean} True if linked list elements are a palindrome, otherwise false.
+    */
+    isAPalindrome() {
+        if (this.size === 0) return false;
+
+        const chars = new Set();
+        let current = this.head;
+        while (current !== null) {
+            const element = current.element;
+            if (chars.has(element)) chars.delete(element)
+            else chars.add(element);
+
+            current = current.next;
+        }
+
+        const existsOnlyOneCharCountEqualOrLessThanOne = chars.size <= 1;
+        return existsOnlyOneCharCountEqualOrLessThanOne;
     }
 }
