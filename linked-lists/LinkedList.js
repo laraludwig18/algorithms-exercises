@@ -24,7 +24,7 @@ export default class LinkedList {
     */
     addMany(elements) {
         if (!Array.isArray(elements) || !elements.length) {
-            throw new Error('Invalid elements');
+            throw new Error("Invalid elements");
         }
 
         elements.forEach(element => this.add(element));
@@ -161,5 +161,26 @@ export default class LinkedList {
         this.head = head;
 
         return this;
+    }
+
+    /**
+    * Time complexity: O(N + M)
+    * Space complexity: O(N + M)
+    * 
+    * @property {Function} toString Return elements in string format. Ex: 1 -> 2 -> 3 = "123"
+    * @return {string}
+    */
+    toString() {
+        if (this.size === 0) return "";
+
+        const stringBuilder = new Array(this.size);
+
+        let current = this.head;
+        while (current !== null) {
+            stringBuilder.push(current.element);
+            current = current.next;
+        }
+
+        return stringBuilder.join("");
     }
 }
