@@ -7,7 +7,6 @@ export default class LinkedListNode {
     constructor(element) {
         /**
         * @property {string | number}
-        * @readonly
         */
         this.element = element;
         /**

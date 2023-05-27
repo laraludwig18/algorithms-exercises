@@ -7,7 +7,6 @@ export default class LinkedList {
         /**
         * @property {LinkedListNode}
         * @default null
-        * @private
         */
         this.head = null;
         /**
@@ -108,6 +107,26 @@ export default class LinkedList {
     * Time complexity: O(N)
     * Space complexity: O(1)
     * 
+    * @property {Function} getKthNode Return kth node
+    * @param {number} k Position to return element
+    * @return {LinkedListNode}
+    */
+    getKthNode(k) {
+        if (!this.head || k <= 0 || k > this.size) return null;
+
+        let current = this.head;
+        while (k > 0 && current) {
+            current = current.next;
+            k--;
+        }
+
+        return current;
+    }
+
+    /**
+    * Time complexity: O(N)
+    * Space complexity: O(1)
+    * 
     * @property {Function} removeMiddleNode Remove a node in the middle, unless the first and last.
     * @return {this}
     */
@@ -143,7 +162,7 @@ export default class LinkedList {
         let tail = this.head;
         let current = this.head;
 
-        while (current !== null) {
+        while (current) {
             let next = current.next;
 
             if (current.element < value) {
@@ -171,12 +190,12 @@ export default class LinkedList {
     * @return {string}
     */
     toString() {
-        if (this.size === 0) return "";
+        if (!this.size) return "";
 
         const stringBuilder = new Array(this.size);
 
         let current = this.head;
-        while (current !== null) {
+        while (current) {
             stringBuilder.push(current.element);
             current = current.next;
         }
@@ -193,11 +212,11 @@ export default class LinkedList {
     * @return {boolean} True if linked list elements are a palindrome, otherwise false.
     */
     isAPalindrome() {
-        if (this.size === 0) return false;
+        if (!this.size) return false;
 
         const chars = new Set();
         let current = this.head;
-        while (current !== null) {
+        while (current) {
             const element = current.element;
             if (chars.has(element)) chars.delete(element)
             else chars.add(element);
@@ -207,5 +226,39 @@ export default class LinkedList {
 
         const existsOnlyOneCharCountEqualOrLessThanOne = chars.size <= 1;
         return existsOnlyOneCharCountEqualOrLessThanOne;
+    }
+
+    /**
+    * Time complexity: O(N)
+    * Space complexity: O(1)
+    * 
+    * @property {Function} getTailAndSize Return TailAndSizeResult class with tail element and size properties.
+    * @return {TailAndSizeResult}
+    */
+    getTailAndSize() {
+        if (!this.size) return new TailAndSizeResult();
+
+        let current = this.head
+        while (current.next) {
+            current = current.next;
+        }
+
+        return new TailAndSizeResult(current, this.size);
+    }
+}
+
+class TailAndSizeResult
+{
+    constructor(tail = null, size = 0) {
+        /**
+        * @property {LinkedListNode}
+        * @default null
+        */
+        this.tail = tail;
+        /**
+        * @property {number}
+        * @default 0
+        */
+        this.size = size;
     }
 }
