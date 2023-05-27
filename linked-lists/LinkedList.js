@@ -90,7 +90,7 @@ export default class LinkedList {
     * 
     * @property {Function} getKthToLast Return kth to last element
     * @param {number} k Position to return element
-    * @return {string | number}
+    * @return {string | number | null}
     */
     getKthToLast(k) {
         if (!this.head || k <= 0 || k > this.size) return null;
@@ -109,7 +109,7 @@ export default class LinkedList {
     * 
     * @property {Function} getKthNode Return kth node
     * @param {number} k Position to return element
-    * @return {LinkedListNode}
+    * @return {LinkedListNode | null}
     */
     getKthNode(k) {
         if (!this.head || k <= 0 || k > this.size) return null;
@@ -245,10 +245,46 @@ export default class LinkedList {
 
         return new TailAndSizeResult(current, this.size);
     }
+
+    /**
+    * Time complexity: O(N)
+    * Space complexity: O(1)
+    * 
+    * @property {Function} findBeginningOfLoop Return node at the beginning of the loop (if one exists), otherwise null.
+    * @return {string | number | null}
+    */
+    findBeginningOfLoop() {
+        if (!this.size) return null;
+
+        let slowRunner = this.head;
+        let fastRunner = this.head;
+
+        while (fastRunner && fastRunner.next) {
+            slowRunner = slowRunner.next;
+            fastRunner = fastRunner.next.next;
+            
+            const collision = slowRunner === fastRunner
+            if (collision) {
+                break;
+            }
+        }
+
+
+        const noLoop = !fastRunner || !fastRunner?.next;
+        if (noLoop) return null;
+
+        slowRunner = this.head;
+        while (slowRunner !== fastRunner) {
+            slowRunner = slowRunner.next;
+            fastRunner = fastRunner.next;
+        }
+
+        const beginningOfLoop = fastRunner;
+        return beginningOfLoop;
+    }
 }
 
-class TailAndSizeResult
-{
+class TailAndSizeResult {
     constructor(tail = null, size = 0) {
         /**
         * @property {LinkedListNode}
