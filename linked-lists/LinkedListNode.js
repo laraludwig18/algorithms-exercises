@@ -1,12 +1,9 @@
 "use strict";
 
 export default class LinkedListNode {
-    /**
-    * @param {string | number} element
-    */
     constructor(element) {
         /**
-        * @property {string | number}
+        * @property {any}
         */
         this.element = element;
         /**

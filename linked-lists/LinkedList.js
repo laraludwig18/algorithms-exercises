@@ -17,8 +17,8 @@ export default class LinkedList {
     }
 
     /** 
-    * @property {Function} addMany Add multiple elements
-    * @param {Array<number>} elements
+    * Add multiple elements
+    * @param {Array<any>} elements
     * @return {this}
     */
     addMany(elements) {
@@ -32,8 +32,8 @@ export default class LinkedList {
     }
 
     /**
-    * @property {Function} add Add single element
-    * @param {string | number} element
+    * Add Add single element
+    * @param {any} element
     * @return {this}
     */
     add(element) {
@@ -60,7 +60,7 @@ export default class LinkedList {
     * Time complexity: O(N²)
     * Space complexity: O(1)
     * 
-    * @property {Function} removeDuplicates Remove duplicate elements
+    * Remove duplicate elements
     * @return {this}
     */
     removeDuplicates() {
@@ -88,9 +88,9 @@ export default class LinkedList {
     * Time complexity: O(N)
     * Space complexity: O(1)
     * 
-    * @property {Function} getKthToLast Return kth to last element
+    * Return kth to last element
     * @param {number} k Position to return element
-    * @return {string | number | null}
+    * @return {any}
     */
     getKthToLast(k) {
         if (!this.head || k <= 0 || k > this.size) return null;
@@ -107,7 +107,7 @@ export default class LinkedList {
     * Time complexity: O(N)
     * Space complexity: O(1)
     * 
-    * @property {Function} getKthNode Return kth node
+    * Return kth node
     * @param {number} k Position to return element
     * @return {LinkedListNode | null}
     */
@@ -127,7 +127,7 @@ export default class LinkedList {
     * Time complexity: O(N)
     * Space complexity: O(1)
     * 
-    * @property {Function} removeMiddleNode Remove a node in the middle, unless the first and last.
+    * Remove a node in the middle, unless the first and last.
     * @return {this}
     */
     removeMiddleNode() {
@@ -151,7 +151,7 @@ export default class LinkedList {
     * Time complexity: O(N)
     * Space complexity: O(N)
     * 
-    * @property {Function} partitionAroundValue Partition a linked list around a value,
+    * Partition a linked list around a value,
     * such that all nodes less than value come before all nodes greater or equal to.
     * @return {this}
     */
@@ -186,7 +186,7 @@ export default class LinkedList {
     * Time complexity: O(N + M)
     * Space complexity: O(N + M)
     * 
-    * @property {Function} toString Return elements in string format. Ex: 1 -> 2 -> 3 = "123".
+    * Return elements in string format. Ex: 1 -> 2 -> 3 = "123".
     * @return {string}
     */
     toString() {
@@ -207,7 +207,7 @@ export default class LinkedList {
     * Time complexity: O(N)
     * Space complexity: O(N)
     * 
-    * @property {Function} isAPalindrome Check if linked list elements are a palindrome.
+    * Check if linked list elements are a palindrome.
     * A palindrome is a word, phrase, number, or sequence of characters that reads the same way forwards and backwards.
     * @return {boolean} True if linked list elements are a palindrome, otherwise false.
     */
@@ -232,7 +232,7 @@ export default class LinkedList {
     * Time complexity: O(N)
     * Space complexity: O(1)
     * 
-    * @property {Function} getTailAndSize Return TailAndSizeResult class with tail element and size properties.
+    * Return TailAndSizeResult class with tail element and size properties.
     * @return {TailAndSizeResult}
     */
     getTailAndSize() {
@@ -250,8 +250,8 @@ export default class LinkedList {
     * Time complexity: O(N)
     * Space complexity: O(1)
     * 
-    * @property {Function} findBeginningOfLoop Return node at the beginning of the loop (if one exists), otherwise null.
-    * @return {string | number | null}
+    * Return node at the beginning of the loop (if one exists), otherwise null.
+    * @return {any}
     */
     findBeginningOfLoop() {
         if (!this.size) return null;

@@ -7,10 +7,9 @@ import LinkedList from "./LinkedList.js";
 * Time complexity: O(N + M)
 * Space complexity: O(1)
 * 
-* @property {Function} findFirstIntersectionElement
 * @param {LinkedList} firstLinkedList
 * @param {LinkedList} secondLinkedList
-* @return {string | number}
+* @return {any}
 */
 function findFirstIntersectionElement(firstLinkedList, secondLinkedList) {
     if (!firstLinkedList || !secondLinkedList) return null;
