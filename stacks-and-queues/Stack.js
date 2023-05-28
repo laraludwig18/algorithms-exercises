@@ -1,3 +1,5 @@
+"use strict";
+
 export default class Stack {
     constructor() {
         /**
@@ -8,6 +10,9 @@ export default class Stack {
     }
 
     /**
+    * Time complexity: O(1)
+    * Space complexity: O(1)
+    * 
     * Add element to top of stack.
     * @param {any} element
     * @return {this}
@@ -18,6 +23,9 @@ export default class Stack {
     }
 
     /**
+    * Time complexity: O(1)
+    * Space complexity: O(1)
+    * 
     * Remove element from top of stack.
     * @return {any}
     */
@@ -30,6 +38,9 @@ export default class Stack {
     }
 
     /**
+    * Time complexity: O(1)
+    * Space complexity: O(1)
+    * 
     * Return top element of the stack.
     * @return {this}
     */
@@ -41,6 +52,9 @@ export default class Stack {
     }
 
     /**
+    * Time complexity: O(1)
+    * Space complexity: O(1)
+    * 
     * @return {boolean}
     */
     isEmpty() {

@@ -1,3 +1,5 @@
+"use strict";
+
 export default class TripleStack {
     constructor() {
         this.array = [];
