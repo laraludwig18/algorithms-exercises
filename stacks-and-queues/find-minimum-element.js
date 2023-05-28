@@ -12,7 +12,7 @@ assert.strictEqual(
         .getMinimumElement(),
     3);
 
-var stackToCheck = new StackWithMinimumElement()
+const stackToCheck = new StackWithMinimumElement()
     .push(7)
     .push(5)
     .push(6)
