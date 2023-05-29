@@ -3,11 +3,11 @@
 export default class LinkedListNode {
     constructor(element) {
         /**
-        * @property {any}
+        * @type {any}
         */
         this.element = element;
         /**
-        * @property {LinkedListNode}
+        * @type {LinkedListNode}
         * @default null
         */
         this.next = null

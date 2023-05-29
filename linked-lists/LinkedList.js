@@ -5,22 +5,24 @@ import LinkedListNode from "./LinkedListNode.js";
 export default class LinkedList {
     constructor() {
         /**
-        * @property {LinkedListNode}
-        * @default null
-        */
+         * @type {LinkedListNode}
+         * @default null
+         */
         this.head = null;
+
         /**
-        * @property {number}
-        * @default 0
-        */
+         * @type {number}
+         * @default 0
+         */
         this.size = 0;
     }
 
-    /** 
-    * Add multiple elements
-    * @param {Array<any>} elements
-    * @return {this}
-    */
+    /**
+     * Adds multiple elements to the linked list.
+     *
+     * @param {Array<any>} elements - The elements to add.
+     * @returns {this}
+     */
     addMany(elements) {
         if (!Array.isArray(elements) || !elements.length) {
             throw new Error("Invalid elements");
@@ -32,16 +34,17 @@ export default class LinkedList {
     }
 
     /**
-    * Add Add single element
-    * @param {any} element
-    * @return {this}
-    */
+     * Adds a single element to the linked list.
+     *
+     * @param {any} element - The element to add.
+     * @returns {this}
+     */
     add(element) {
         const newNode = new LinkedListNode(element);
 
-        if (!this.head)
+        if (!this.head) {
             this.head = newNode;
-        else {
+        } else {
             let current = this.head;
 
             while (current.next) {
@@ -57,12 +60,12 @@ export default class LinkedList {
     }
 
     /**
-    * Time complexity: O(N²)
-    * Space complexity: O(1)
-    * 
-    * Remove duplicate elements
-    * @return {this}
-    */
+     * Removes duplicate elements from the linked list.
+     *
+     * @returns {this}
+     * @timecomplexity O(N²)
+     * @spacecomplexity O(1)
+     */
     removeDuplicates() {
         let current = this.head;
 
@@ -85,13 +88,13 @@ export default class LinkedList {
     }
 
     /**
-    * Time complexity: O(N)
-    * Space complexity: O(1)
-    * 
-    * Return kth to last element
-    * @param {number} k Position to return element
-    * @return {any}
-    */
+     * Returns the kth to last element from the linked list.
+     *
+     * @param {number} k - The position of the element to return.
+     * @returns {any} The kth to last element.
+     * @timecomplexity O(N)
+     * @spacecomplexity O(1)
+     */
     getKthToLast(k) {
         if (!this.head || k <= 0 || k > this.size) return null;
 
@@ -104,13 +107,13 @@ export default class LinkedList {
     }
 
     /**
-    * Time complexity: O(N)
-    * Space complexity: O(1)
-    * 
-    * Return kth node
-    * @param {number} k Position to return element
-    * @return {LinkedListNode | null}
-    */
+     * Returns the kth node from the linked list.
+     *
+     * @param {number} k - The position of the node to return.
+     * @returns {LinkedListNode|null} The kth node or null if it doesn't exist.
+     * @timecomplexity O(N)
+     * @spacecomplexity O(1)
+     */
     getKthNode(k) {
         if (!this.head || k <= 0 || k > this.size) return null;
 
@@ -124,12 +127,12 @@ export default class LinkedList {
     }
 
     /**
-    * Time complexity: O(N)
-    * Space complexity: O(1)
-    * 
-    * Remove a node in the middle, unless the first and last.
-    * @return {this}
-    */
+     * Removes the middle node from the linked list.
+     *
+     * @returns {this}
+     * @timecomplexity O(N)
+     * @spacecomplexity O(1)
+     */
     removeMiddleNode() {
         if (this.size <= 2) return this;
 
@@ -148,13 +151,13 @@ export default class LinkedList {
     }
 
     /**
-    * Time complexity: O(N)
-    * Space complexity: O(N)
-    * 
-    * Partition a linked list around a value,
-    * such that all nodes less than value come before all nodes greater or equal to.
-    * @return {this}
-    */
+     * Partitions the linked list around a value.
+     *
+     * @param {any} value - The value to partition around.
+     * @returns {this}
+     * @timecomplexity O(N + M)
+     * @spacecomplexity O(N + M)
+     */
     partitionAroundValue(value) {
         if (this.size <= 1) return this;
 
@@ -183,12 +186,12 @@ export default class LinkedList {
     }
 
     /**
-    * Time complexity: O(N + M)
-    * Space complexity: O(N + M)
-    * 
-    * Return elements in string format. Ex: 1 -> 2 -> 3 = "123".
-    * @return {string}
-    */
+     * Returns the linked list elements as a string.
+     *
+     * @returns {string} The string representation of the linked list.
+     * @timecomplexity O(N)
+     * @spacecomplexity O(N)
+     */
     toString() {
         if (!this.size) return "";
 
@@ -204,13 +207,12 @@ export default class LinkedList {
     }
 
     /**
-    * Time complexity: O(N)
-    * Space complexity: O(N)
-    * 
-    * Check if linked list elements are a palindrome.
-    * A palindrome is a word, phrase, number, or sequence of characters that reads the same way forwards and backwards.
-    * @return {boolean} True if linked list elements are a palindrome, otherwise false.
-    */
+     * Checks if the linked list elements form a palindrome.
+     *
+     * @returns {boolean} True if the linked list is a palindrome, false otherwise.
+     * @timecomplexity O(N)
+     * @spacecomplexity O(1)
+     */
     isAPalindrome() {
         if (!this.size) return false;
 
@@ -229,12 +231,12 @@ export default class LinkedList {
     }
 
     /**
-    * Time complexity: O(N)
-    * Space complexity: O(1)
-    * 
-    * Return TailAndSizeResult class with tail element and size properties.
-    * @return {TailAndSizeResult}
-    */
+     * Returns the tail and size of the linked list.
+     *
+     * @returns {TailAndSizeResult} The tail and size of the linked list.
+     * @timecomplexity O(N)
+     * @spacecomplexity O(1)
+     */
     getTailAndSize() {
         if (!this.size) return new TailAndSizeResult();
 
@@ -247,12 +249,12 @@ export default class LinkedList {
     }
 
     /**
-    * Time complexity: O(N)
-    * Space complexity: O(1)
-    * 
-    * Return node at the beginning of the loop (if one exists), otherwise null.
-    * @return {any}
-    */
+     * Finds the beginning node of a loop in the linked list.
+     *
+     * @returns {any|null} The beginning node of the loop, or null if there is no loop.
+     * @timecomplexity O(N)
+     * @spacecomplexity O(1)
+     */
     findBeginningOfLoop() {
         if (!this.size) return null;
 
@@ -287,14 +289,19 @@ export default class LinkedList {
 class TailAndSizeResult {
     constructor(tail = null, size = 0) {
         /**
-        * @property {LinkedListNode}
-        * @default null
-        */
+         * The tail node of the linked list.
+         *
+         * @type {LinkedListNode}
+         * @default null
+         */
         this.tail = tail;
+
         /**
-        * @property {number}
-        * @default 0
-        */
+         * The size of the linked list.
+         *
+         * @type {number}
+         * @default 0
+         */
         this.size = size;
     }
 }

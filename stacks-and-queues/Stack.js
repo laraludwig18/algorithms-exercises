@@ -1,63 +1,77 @@
 "use strict";
 
 export default class Stack {
-    constructor() {
+    #elements;
+    #capacity;
+
+    constructor(capacity = null) {
         /**
-        * @property {Array<any>}
-        * @default []
-        */
-        this.elements = [];
+         * @type {Array<any>}
+         * @default []
+         */
+        this.#elements = [];
+        /**
+         * @type {number}
+         * @default null
+         */
+        this.#capacity = capacity;
     }
 
     /**
-    * Time complexity: O(1)
-    * Space complexity: O(1)
-    * 
-    * Add element to top of stack.
-    * @param {any} element
-    * @return {this}
-    */
+     * Adds element to top of stack.
+     * @param {any} element
+     * @return {this}
+     * @timecomplexity O(1)
+     * @spacecomplexity O(1)
+     */
     push(element) {
-        this.elements.push(element);
+        if (this.isFull()) throw new Error("Stack is full.");
+
+        this.#elements.push(element);
         return this;
     }
 
     /**
-    * Time complexity: O(1)
-    * Space complexity: O(1)
-    * 
-    * Remove element from top of stack.
-    * @return {any}
-    */
+     * Removes element from top of stack.
+     * @return {any}
+     * @timecomplexity O(1)
+     * @spacecomplexity O(1)
+     */
     pop() {
-        if (this.isEmpty()) {
-            throw new Error("Stack is empty.");
-        }
+        if (this.isEmpty()) return null;
 
-        return this.elements.pop();
+        return this.#elements.pop();
     }
 
     /**
-    * Time complexity: O(1)
-    * Space complexity: O(1)
-    * 
-    * Return top element of the stack.
-    * @return {this}
-    */
+     * Returns top element of the stack.
+     * @return {this}
+     * @timecomplexity O(1)
+     * @spacecomplexity O(1)
+     */
     peek() {
         if (this.isEmpty()) return null;
 
-        const lastElementIndex = this.elements.length - 1;
-        return this.elements[lastElementIndex];
+        const lastElementIndex = this.#elements.length - 1;
+        return this.#elements[lastElementIndex];
     }
 
     /**
-    * Time complexity: O(1)
-    * Space complexity: O(1)
-    * 
-    * @return {boolean}
-    */
+     * @return {boolean}
+     * @timecomplexity O(1)
+     * @spacecomplexity O(1)
+     */
     isEmpty() {
-        return this.elements.length === 0;
+        return this.#elements.length === 0;
+    }
+
+    /**
+     * Returns true if the number of elements equals the set capacity, otherwise false.
+     * @return {boolean}
+     * @timecomplexity O(1)
+     * @spacecomplexity O(1)
+     */
+    isFull() {
+        return this.#elements.length === this.#capacity;
     }
 }
