@@ -155,8 +155,8 @@ export default class LinkedList {
      *
      * @param {any} value - The value to partition around.
      * @returns {this}
-     * @timecomplexity O(N + M)
-     * @spacecomplexity O(N + M)
+     * @timecomplexity O(N)
+     * @spacecomplexity O(N)
      */
     partitionAroundValue(value) {
         if (this.size <= 1) return this;
@@ -240,12 +240,12 @@ export default class LinkedList {
     getTailAndSize() {
         if (!this.size) return new TailAndSizeResult();
 
-        let current = this.head
-        while (current.next) {
-            current = current.next;
+        let tail = this.head
+        while (tail.next) {
+            tail = tail.next;
         }
 
-        return new TailAndSizeResult(current, this.size);
+        return new TailAndSizeResult(tail, this.size);
     }
 
     /**
