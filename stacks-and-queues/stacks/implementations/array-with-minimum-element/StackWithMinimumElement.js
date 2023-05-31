@@ -1,6 +1,6 @@
 "use strict";
 
-import Stack from "./Stack.js";
+import Stack from "../array/Stack.js";
 
 export default class StackWithMinimumElement extends Stack {
     constructor() {

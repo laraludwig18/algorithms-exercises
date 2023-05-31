@@ -1,7 +1,7 @@
 "use strict";
 
 import assert from "node:assert/strict";
-import StackWithMinimumElement from "./StackWithMinimumElement.js";
+import StackWithMinimumElement from "./stacks/implementations/array-with-minimum-element/StackWithMinimumElement.js";
 
 assert.strictEqual(
     new StackWithMinimumElement()

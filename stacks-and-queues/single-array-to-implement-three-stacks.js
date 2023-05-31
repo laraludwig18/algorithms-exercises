@@ -1,7 +1,7 @@
 "use strict";
 
 import assert from "node:assert/strict";
-import TripleStack from "./TripleStack.js";
+import TripleStack from "./stacks/implementations/three-stack-in-one-array/TripleStack.js";
 
 const firstStackIndex = 1;
 const secondStackIndex = 2;
