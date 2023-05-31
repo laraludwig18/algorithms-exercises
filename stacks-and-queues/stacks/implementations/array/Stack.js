@@ -57,6 +57,15 @@ export default class Stack {
     }
 
     /**
+     * @return {number}
+     * @timecomplexity O(1)
+     * @spacecomplexity O(1)
+     */
+    size() {
+        return this.#elements.length;
+    }
+
+    /**
      * @return {boolean}
      * @timecomplexity O(1)
      * @spacecomplexity O(1)
