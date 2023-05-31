@@ -1,6 +1,6 @@
 "use strict";
 
-import Stack from "./Stack.js";
+import Stack from "./stacks/implementations/doubly-linked-list/Stack.js";
 
 export default class SetOfStacks {
     #stacks;
@@ -68,7 +68,38 @@ export default class SetOfStacks {
      * @spacecomplexity O(1)
      */
     popAt(stackIndex) {
-        // TODO
+        const removeTop = true;
+        return this.#leftShift(stackIndex, removeTop);
+    }
+
+    /**
+     * Removes an item from one of the stacks in the stack set, 
+     * maintaining the integrity of the data structure by adjusting the stack arrangement if necessary.
+     * @param {number} stackIndex.
+     * @param {boolean} [removeTop=false].
+     * @returns {any} Removed item.
+     * @timecomplexity O(N)
+     * @spacecomplexity O(k = quantity of stacks.)
+     */
+    #leftShift(stackIndex, removeTop = false) {
+        const stack = this.#stacks[stackIndex];
+
+        if (!stack) return null;
+
+        const removedItem = removeTop
+            ? stack.pop()
+            : stack.removeBottom();
+
+        if (stack.isEmpty()) {
+            const deleteCount = 1;
+            this.#stacks.splice(stackIndex, deleteCount);
+        } else if (this.#stacks.length > (stackIndex + 1)) {
+            const removeTop = false;
+            const value = this.#leftShift(stackIndex + 1, removeTop);
+            stack.push(value);
+        }
+
+        return removedItem;
     }
 
     /**
@@ -80,6 +111,16 @@ export default class SetOfStacks {
      */
     getStackQuantity() {
         return this.#stacks.length;
+    }
+
+    /**
+     * @returns {bool}
+     * @timecomplexity O(1)
+     * @spacecomplexity O(1)
+     */
+    isEmpty() {
+        const lastStack = this.#getLastStack();
+        return !lastStack || lastStack?.isEmpty();
     }
 
     /**
