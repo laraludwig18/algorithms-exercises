@@ -32,7 +32,7 @@ function findFirstIntersectionElement(firstLinkedList, secondLinkedList) {
         : firstLinkedList
 
     longer = longer.getKthNode(Math.abs(firstLinkedListResult.size - secondLinkedListResult.size));
-    shorter = shorter.head;
+    shorter = shorter.peek();
 
     while (shorter.element !== longer.element) {
         shorter = shorter.next;

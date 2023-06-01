@@ -3,18 +3,51 @@
 import LinkedListNode from "./LinkedListNode.js";
 
 export default class LinkedList {
+    #head;
+    #size;
+
     constructor() {
         /**
          * @type {LinkedListNode}
          * @default null
          */
-        this.head = null;
+        this.#head = null;
 
         /**
          * @type {number}
          * @default 0
          */
-        this.size = 0;
+        this.#size = 0;
+    }
+
+    /**
+     * Returns first node;
+     * 
+     * @returns {LinkedListNode}
+     * @timecomplexity O(1)
+     * @spacecomplexity O(1)
+     */
+    peek() {
+        if (this.isEmpty()) return null;
+        return this.#head;
+    }
+
+    /**
+     * @returns {number}
+     * @timecomplexity O(1)
+     * @spacecomplexity O(1)
+     */
+    size() {
+        return this.#size;
+    }
+
+    /**
+     * @returns {number}
+     * @timecomplexity O(1)
+     * @spacecomplexity O(1)
+     */
+    isEmpty() {
+        return this.#size === 0;
     }
 
     /**
@@ -22,6 +55,8 @@ export default class LinkedList {
      *
      * @param {Array<any>} elements - The elements to add.
      * @returns {this}
+     * @timecomplexity O(N * M)
+     * @spacecomplexity O(1)
      */
     addMany(elements) {
         if (!Array.isArray(elements) || !elements.length) {
@@ -38,14 +73,16 @@ export default class LinkedList {
      *
      * @param {any} element - The element to add.
      * @returns {this}
+     * @timecomplexity O(N)
+     * @spacecomplexity O(1)
      */
     add(element) {
         const newNode = new LinkedListNode(element);
 
-        if (!this.head) {
-            this.head = newNode;
+        if (!this.#head) {
+            this.#head = newNode;
         } else {
-            let current = this.head;
+            let current = this.#head;
 
             while (current.next) {
                 current = current.next;
@@ -54,9 +91,26 @@ export default class LinkedList {
             current.next = newNode;
         }
 
-        this.size++;
+        this.#size++;
 
         return this;
+    }
+
+    /**
+     * Deletes first node.
+     *
+     * @returns {any}
+     * @timecomplexity O(1)
+     * @spacecomplexity O(1)
+     */
+    deleteAtBeginning() {
+        if (!this.#head) return null;
+
+        const removedHead = this.#head;
+        this.#head = this.#head.next;
+        this.#size--;
+
+        return removedHead.element;
     }
 
     /**
@@ -67,7 +121,7 @@ export default class LinkedList {
      * @spacecomplexity O(1)
      */
     removeDuplicates() {
-        let current = this.head;
+        let current = this.#head;
 
         while (current) {
             let runner = current;
@@ -75,7 +129,7 @@ export default class LinkedList {
             while (runner.next) {
                 if (runner.next.element === current.element) {
                     runner.next = runner.next.next;
-                    this.size--;
+                    this.#size--;
                 } else {
                     runner = runner.next;
                 }
@@ -96,10 +150,10 @@ export default class LinkedList {
      * @spacecomplexity O(1)
      */
     getKthToLast(k) {
-        if (!this.head || k <= 0 || k > this.size) return null;
+        if (!this.#head || k <= 0 || k > this.#size) return null;
 
-        let pointer = this.head;
-        for (let i = 0; i < this.size - k; i++) {
+        let pointer = this.#head;
+        for (let i = 0; i < this.#size - k; i++) {
             pointer = pointer?.next;
         }
 
@@ -115,9 +169,9 @@ export default class LinkedList {
      * @spacecomplexity O(1)
      */
     getKthNode(k) {
-        if (!this.head || k <= 0 || k > this.size) return null;
+        if (!this.#head || k <= 0 || k > this.#size) return null;
 
-        let current = this.head;
+        let current = this.#head;
         while (k > 0 && current) {
             current = current.next;
             k--;
@@ -134,18 +188,18 @@ export default class LinkedList {
      * @spacecomplexity O(1)
      */
     removeMiddleNode() {
-        if (this.size <= 2) return this;
+        if (this.#size <= 2) return this;
 
-        const middleIndex = Math.floor((this.size - 1) / 2);
+        const middleIndex = Math.floor((this.#size - 1) / 2);
         const previousMiddleIndex = middleIndex - 1;
 
-        let pointer = this.head;
+        let pointer = this.#head;
         for (let i = 0; i < previousMiddleIndex; i++) {
             pointer = pointer.next;
         }
 
         pointer.next = pointer?.next?.next;
-        this.size--;
+        this.#size--;
 
         return this;
     }
@@ -159,11 +213,11 @@ export default class LinkedList {
      * @spacecomplexity O(N)
      */
     partitionAroundValue(value) {
-        if (this.size <= 1) return this;
+        if (this.#size <= 1) return this;
 
-        let head = this.head;
-        let tail = this.head;
-        let current = this.head;
+        let head = this.#head;
+        let tail = this.#head;
+        let current = this.#head;
 
         while (current) {
             let next = current.next;
@@ -180,7 +234,7 @@ export default class LinkedList {
         }
 
         tail.next = null;
-        this.head = head;
+        this.#head = head;
 
         return this;
     }
@@ -193,11 +247,11 @@ export default class LinkedList {
      * @spacecomplexity O(N)
      */
     toString() {
-        if (!this.size) return "";
+        if (!this.#size) return "";
 
-        const stringBuilder = new Array(this.size);
+        const stringBuilder = new Array(this.#size);
 
-        let current = this.head;
+        let current = this.#head;
         while (current) {
             stringBuilder.push(current.element);
             current = current.next;
@@ -214,10 +268,10 @@ export default class LinkedList {
      * @spacecomplexity O(1)
      */
     isAPalindrome() {
-        if (!this.size) return false;
+        if (!this.#size) return false;
 
         const chars = new Set();
-        let current = this.head;
+        let current = this.#head;
         while (current) {
             const element = current.element;
             if (chars.has(element)) chars.delete(element)
@@ -238,14 +292,14 @@ export default class LinkedList {
      * @spacecomplexity O(1)
      */
     getTailAndSize() {
-        if (!this.size) return new TailAndSizeResult();
+        if (!this.#size) return new TailAndSizeResult();
 
-        let tail = this.head
+        let tail = this.#head
         while (tail.next) {
             tail = tail.next;
         }
 
-        return new TailAndSizeResult(tail, this.size);
+        return new TailAndSizeResult(tail, this.#size);
     }
 
     /**
@@ -256,15 +310,15 @@ export default class LinkedList {
      * @spacecomplexity O(1)
      */
     findBeginningOfLoop() {
-        if (!this.size) return null;
+        if (!this.#size) return null;
 
-        let slowRunner = this.head;
-        let fastRunner = this.head;
+        let slowRunner = this.#head;
+        let fastRunner = this.#head;
 
         while (fastRunner && fastRunner.next) {
             slowRunner = slowRunner.next;
             fastRunner = fastRunner.next.next;
-            
+
             const collision = slowRunner === fastRunner
             if (collision) {
                 break;
@@ -275,7 +329,7 @@ export default class LinkedList {
         const noLoop = !fastRunner || !fastRunner?.next;
         if (noLoop) return null;
 
-        slowRunner = this.head;
+        slowRunner = this.#head;
         while (slowRunner !== fastRunner) {
             slowRunner = slowRunner.next;
             fastRunner = fastRunner.next;

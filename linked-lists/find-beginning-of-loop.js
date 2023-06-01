@@ -5,8 +5,8 @@ import LinkedList from "./LinkedList.js";
 
 const linkedList = new LinkedList().addMany([1, 2, 3, 4, 5, 6, 7, 8]);
 
-const lastNode = linkedList.getKthNode(linkedList.size - 1);
-const thirdNode = linkedList.head.next.next
+const lastNode = linkedList.getKthNode(linkedList.size() - 1);
+const thirdNode = linkedList.peek().next.next;
 lastNode.next = thirdNode;
 const beginningOfLoop = lastNode.next;
 
