@@ -6,7 +6,7 @@ export default class Stack {
 
     constructor(capacity = null) {
         /**
-         * @type {Array<any>}
+         * @type {Array<number>}
          * @default []
          */
         this.#elements = [];
@@ -19,7 +19,7 @@ export default class Stack {
 
     /**
      * Adds element to top of stack.
-     * @param {any} element
+     * @param {number} element
      * @return {this}
      * @timecomplexity O(1)
      * @spacecomplexity O(1)
@@ -33,7 +33,7 @@ export default class Stack {
 
     /**
      * Removes element from top of stack.
-     * @return {any}
+     * @return {number}
      * @timecomplexity O(1)
      * @spacecomplexity O(1)
      */
@@ -82,5 +82,33 @@ export default class Stack {
      */
     isFull() {
         return this.#elements.length === this.#capacity;
+    }
+
+    /**
+     * Sorts the stack in ascending order.
+     * 
+     * @returns {this}
+     * @timecomplexity O(N²)
+     * @spacecomplexity O(N)
+     */
+    sortAscending() {
+        const descendingStack = new Stack();
+
+        while (!this.isEmpty()) {
+            const lastElement = this.pop();
+
+            while (!descendingStack.isEmpty() && descendingStack.peek() > lastElement) {
+                const largestElement = descendingStack.pop();
+                this.push(largestElement);
+            }
+
+            descendingStack.push(lastElement);
+        }
+
+        while (!descendingStack.isEmpty()) {
+            this.push(descendingStack.pop())
+        }
+
+        return this;
     }
 }

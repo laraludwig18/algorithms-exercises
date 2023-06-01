@@ -39,9 +39,9 @@ export default class Stack {
         return this.#top;
     }
 
-    #join(above, below) {
-        if (below) below.above = above;
-        if (above) above.below = below;
+    #moveNodeToTop({ node, currentTop } = {}) {
+        if (currentTop) currentTop.above = node;
+        if (node) node.below = currentTop;
     }
 
     /**
@@ -53,12 +53,15 @@ export default class Stack {
      */
     push(value) {
         if (this.isFull()) throw new Error("Stack is full.");
+        
+        const node = new Node(value);
         this.#size++;
 
-        const node = new Node(value);
-
         if (this.#size === 1) this.#bottom = node;
-        this.#join(node, this.#top);
+        this.#moveNodeToTop({
+            node: node, 
+            currentTop: this.#top
+        });
         this.#top = node;
 
         return this;
@@ -82,14 +85,14 @@ export default class Stack {
 
     /**
      * Returns top node of the stack.
-     * @return {this}
+     * @return {any}
      * @timecomplexity O(1)
      * @spacecomplexity O(1)
      */
     peek() {
         if (this.isEmpty()) return null;
 
-        return this.#top;
+        return this.#top.value;
     }
 
     /**

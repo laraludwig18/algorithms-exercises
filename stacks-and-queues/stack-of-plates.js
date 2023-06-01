@@ -9,13 +9,15 @@ const secondStackIndex = 1;
 const setOfStacks = new SetOfStacks(capacityPerStack)
     .push(7)
     .push(3)
+    .push(5)
+    .push(6);
 
-// assert.strictEqual(setOfStacks.getStackQuantity(), 2);
+assert.strictEqual(setOfStacks.getStackQuantity(), 2);
 
-// setOfStacks.pop();
-// setOfStacks.pop();
+setOfStacks.pop();
+setOfStacks.pop();
 
-// assert.strictEqual(setOfStacks.getStackQuantity(), 1);
+assert.strictEqual(setOfStacks.getStackQuantity(), 1);
 
 setOfStacks
     .push(6)
