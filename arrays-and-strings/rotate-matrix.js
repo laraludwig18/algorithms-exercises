@@ -11,8 +11,8 @@ import assert from "node:assert/strict";
  */
 function rotateMatrix90Clockwise(matrix) {
     const isEmptyMatrix = matrix.length === 0;
-    const AreMatrixRowsAndColumnsSizeDifferent = matrix.length !== matrix[0].length;
-    if (isEmptyMatrix || AreMatrixRowsAndColumnsSizeDifferent) throw new Error("Invalid matrix");
+    const areMatrixRowsAndColumnsSizeDifferent = matrix.length !== matrix[0].length;
+    if (isEmptyMatrix || areMatrixRowsAndColumnsSizeDifferent) throw new Error("Invalid matrix");
 
     // no need to do anything to rotate a 1x1 matrix
     if (matrix.length < 2) return matrix;
