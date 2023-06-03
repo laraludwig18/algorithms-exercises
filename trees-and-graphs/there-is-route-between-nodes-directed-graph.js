@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 
 import Graph from "./graphs/directed/Graph.js";
-import Node from "./graphs/Node.js";
+import Node from "./graphs/directed/Node.js";
 
 const graph = new Graph();
 
@@ -23,9 +23,11 @@ graph
     .addNode(eNode);
 
 /**
- *     A
- *   B   C  
- * D       E
+ *      A
+ *    /  \
+ *   B    C 
+ *  /      \
+ * D        E
  */    
 
 assert.strictEqual(graph.thereIsRouteBetweenNodes(aNode, eNode), true);

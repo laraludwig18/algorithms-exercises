@@ -1,5 +1,5 @@
 import LinkedList from "../../../linked-lists/LinkedList.js";
-import Node from "../Node.js";
+import Node from "./Node.js";
 
 export default class Graph {
     #vertices
