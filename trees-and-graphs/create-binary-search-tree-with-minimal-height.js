@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 
-import TreeNode from "./trees/binary-search/TreeNode.js";
+import BinarySearchTree from "./trees/binary-search/BinarySearchTree.js";
 
-const root = TreeNode.createMinimalBinarySearchTree([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+const root = BinarySearchTree.createFromArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
 /**
  *          5
