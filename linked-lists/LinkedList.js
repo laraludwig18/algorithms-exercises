@@ -338,6 +338,14 @@ export default class LinkedList {
         const beginningOfLoop = fastRunner;
         return beginningOfLoop;
     }
+
+    *[Symbol.iterator]() {
+        let current = this.#head;
+        while (current) {
+            yield current.element;
+            current = current.next;
+        }
+    }
 }
 
 class TailAndSizeResult {
