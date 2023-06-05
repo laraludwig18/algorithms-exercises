@@ -1,4 +1,4 @@
-import Stack from "../../../stacks/implementations/array/Stack.js";
+import Stack from "../../stacks/array/Stack.js";
 
 export default class Queue {
     #stackNewest;

@@ -1,6 +1,6 @@
 "use strict";
 
-import Stack from "./stacks/implementations/doubly-linked-list/Stack.js";
+import Stack from "./stacks/doubly-linked-list/Stack.js";
 
 export default class SetOfStacks {
     #stacks;
