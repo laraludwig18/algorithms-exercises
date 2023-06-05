@@ -1,7 +1,5 @@
 "use strict";
 
-import assert from "node:assert/strict";
-
 /**
  * Time complexity: O(N + M)
  * Space complexity: O(N)
@@ -11,7 +9,7 @@ import assert from "node:assert/strict";
  * @return {boolean} True if first and second strings are permutations otherwise false
  */
 
-function areStringsPermutations(firstString, secondString) {
+export default function areStringsPermutations(firstString, secondString) {
     if (firstString.length !== secondString.length) return false;
 
     const chars = new Map();
@@ -35,7 +33,3 @@ function areStringsPermutations(firstString, secondString) {
 
     return chars.size === 0;
 }
-
-assert.deepStrictEqual(areStringsPermutations("john", "nhoj"), true);
-assert.deepStrictEqual(areStringsPermutations("john", "john "), false);
-assert.deepStrictEqual(areStringsPermutations("john", "doe"), false);

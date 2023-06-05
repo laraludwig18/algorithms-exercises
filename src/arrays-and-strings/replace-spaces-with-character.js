@@ -1,7 +1,5 @@
 "use strict";
 
-import assert from "node:assert/strict";
-
 /**
  * Time complexity: O(N * M)
  * Space complexity: O(N)
@@ -11,7 +9,7 @@ import assert from "node:assert/strict";
  * @param {string} [character="%20"] Character to replace spaces
  * @return {string} New string using character instead of spaces
  */
-function replaceSpacesWithCharacter(stringWithSpaces, stringSize, character = "%20") {
+export default function replaceSpacesWithCharacter(stringWithSpaces, stringSize, character = "%20") {
     let string = stringWithSpaces.split("");
     const space = " ";
     const spaceCount = countCharacter(string, stringSize, space);
@@ -42,7 +40,3 @@ function countCharacter(string, stringSize, target) {
 
     return count;
 }
-
-assert.strictEqual(replaceSpacesWithCharacter("Mr John Smith    ", 13), "Mr%20John%20Smith");
-assert.strictEqual(replaceSpacesWithCharacter("Mr John Smith  ", 13, "%0"), "Mr%0John%0Smith");
-assert.strictEqual(replaceSpacesWithCharacter("Mr John Smith", 13, "0"), "Mr0John0Smith");

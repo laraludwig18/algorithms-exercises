@@ -1,7 +1,5 @@
 "use strict";
 
-import assert from "node:assert/strict";
-
 /**
  * Time complexity: O(N)
  * Space complexity: O(1)
@@ -10,7 +8,7 @@ import assert from "node:assert/strict";
  * @param {string} secondString
  * @return {boolean} True if strings are less than two edits away, otherwise false
  */
-function areStringsLessThanTwoEditsAway(firstString, secondString) {
+export default function areStringsLessThanTwoEditsAway(firstString, secondString) {
     const firstStringSize = firstString.length;
     const secondStringSize = secondString.length;
 
@@ -52,8 +50,3 @@ function checkInsert(biggerString, smallerString) {
 
     return true;
 }
-
-assert.strictEqual(areStringsLessThanTwoEditsAway("pale", "ple"), true);
-assert.strictEqual(areStringsLessThanTwoEditsAway("pales", "pale"), true);
-assert.strictEqual(areStringsLessThanTwoEditsAway("pale", "bale"), true);
-assert.strictEqual(areStringsLessThanTwoEditsAway("pale", "bae"), false);

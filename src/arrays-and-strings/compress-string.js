@@ -1,7 +1,5 @@
 "use strict";
 
-import assert from "node:assert/strict";
-
 /**
  * Time complexity: O(N)
  * Space complexity: O(N)
@@ -9,7 +7,7 @@ import assert from "node:assert/strict";
  * @param {string} string
  * @return {string} Compressed string or original string if equal or smaller than compressed
  */
-function compressString(string) {
+export default function compressString(string) {
     if (!string || string.length < 2) return string;
 
     let countConsecutive = 0;
@@ -32,7 +30,3 @@ function compressString(string) {
 
     return compressedString.length >= string.length ? string : compressedString;
 }
-
-assert.deepStrictEqual(compressString("aabcccccaaa"), "a2b1c5a3");
-assert.deepStrictEqual(compressString("aabb"), "aabb");
-assert.deepStrictEqual(compressString("abcd"), "abcd");
