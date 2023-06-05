@@ -78,4 +78,36 @@ export default class BinaryTree {
 
         return result;
     }
+    
+    /**
+     * Recursively checks the height of the given node and determines if the tree is balanced.
+     * @param {Node} node - The node to check the height for.
+     * @returns {number} - The height of the node if it is balanced, or Number.MIN_VALUE if it is unbalanced.
+     * @complexity Time: O(n), Space: O(h = height of the tree)
+     */
+    #checkHeight(node) {
+        if (!node) return -1;
+
+        const leftHeight = this.#checkHeight(node.left);
+        if (leftHeight === Number.MIN_VALUE) return Number.MIN_VALUE;
+
+        const rightHeight = this.#checkHeight(node.right);
+        if (rightHeight === Number.MIN_VALUE) return Number.MIN_VALUE;
+
+        const heightDiff = leftHeight - rightHeight;
+
+        if (Math.abs(heightDiff) > 1) return Number.MIN_VALUE;
+
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+
+    /**
+     * Checks if the tree is balanced.
+     * @param {Node} [node=this.root] - The node to start checking from. If not provided, the root of the tree is used.
+     * @returns {boolean} - True if the tree is balanced, false otherwise.
+     * @complexity Time: O(n), Space: O(h = height of the tree)
+     */
+    isBalanced(node = this.root) {
+        return this.#checkHeight(node) !== Number.MIN_VALUE;
+    }
 }
