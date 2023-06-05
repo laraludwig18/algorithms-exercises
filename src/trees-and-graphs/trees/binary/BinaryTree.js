@@ -1,3 +1,5 @@
+"use strict";
+
 import Node from "../Node.js";
 import LinkedList from "../../../linked-lists/LinkedList.js";
 

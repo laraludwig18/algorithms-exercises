@@ -1,3 +1,5 @@
+"use strict";
+
 import Stack from "../../stacks/array/Stack.js";
 
 export default class Queue {

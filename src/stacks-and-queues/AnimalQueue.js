@@ -1,3 +1,5 @@
+"use strict";
+
 import LinkedList from "../linked-lists/LinkedList.js";
 
 export class AnimalQueue {
