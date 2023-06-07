@@ -3,7 +3,7 @@
 import assert from "node:assert/strict";
 import { describe, it, before } from 'node:test';
 
-import BinarySearchTree from "../../src/trees-and-graphs/trees/binary-search/BinarySearchTree.js";
+import BinaryTree from "../../src/trees-and-graphs/trees/binary/BinaryTree.js";
 
 /**
  *          5
@@ -18,7 +18,10 @@ import BinarySearchTree from "../../src/trees-and-graphs/trees/binary-search/Bin
 describe('create-binary-search-tree-with-minimal-height', () => {
   let root = null;
 
-  before(() => root = BinarySearchTree.createFromArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+  before(() => {
+    const binarySearchTree = BinaryTree.createSearchTreeFromArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    root = binarySearchTree.getRoot();
+  });
 
   it('should root be middle element of array', () => {
     assert.strictEqual(root.data, 5);
